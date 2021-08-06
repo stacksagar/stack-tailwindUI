@@ -1,0 +1,246 @@
+@font-face {
+  font-family: 'operatorMono';
+  src: url('/fonts/operator-mono-italic.otf');
+  font-style: italic;
+}
+@font-face {
+  font-family: 'operatorMono';
+  src: url('/fonts/operator-mono-regular.otf');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'prime';
+  src: url('/fonts/prime.ttf');
+  font-style: normal;
+}
+.prime {
+  font-family: prime !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+@layer components {
+  .parent:hover .child {
+    display: block !important;
+  }
+
+  .circleDuration {
+    animation-duration: 5s !important;
+  }
+
+  /* :>> JSX Styles Start ` */
+  .token.string {
+    color: #48ff19 !important;
+  }
+
+  .token.keyword {
+    color: #f17b7b !important;
+    font-style: italic !important;
+  }
+
+  .token.plain {
+    color: #c6c844 !important;
+  }
+
+  #arrowSign {
+    background: #fff !important;
+    color: #000000 !important;
+    padding: 0px 7px !important;
+    border-radius: 10px !important;
+    font-weight: bold !important;
+    font-style: italic !important;
+  }
+
+  #bracket {
+    color: yellow !important;
+  }
+
+  /* :>> JSX Styles End ` */
+
+  body {
+    background: #151f33;
+    color: #eee;
+  }
+
+  .bgSidebar {
+    background: #1b2333;
+  }
+
+  .leftBar {
+    min-width: 250px !important;
+    max-width: 250px;
+  }
+
+  * {
+    transition: all 0.4s;
+    font-family: operatorMono !important ;
+    scroll-behavior: smooth !important;
+    scrollbar-color: #fff #222222;
+    scrollbar-width: thin;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 20px;
+  }
+
+  /* For Sidebar Scrollbar */
+  .sidebarScroll,
+  .scrollHandle {
+    scrollbar-color: transparent transparent;
+  }
+  .sidebarScroll:hover,
+  .scrollHandle:hover {
+    scrollbar-color: lightblue transparent;
+  }
+  .sidebarScroll::-webkit-scrollbar,
+  .scrollHandle::-webkit-scrollbar {
+    width: 7px !important;
+    height: 7px !important;
+  }
+  .sidebarScroll::-webkit-scrollbar-track,
+  .scrollHandle::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+  .sidebarScroll::-webkit-scrollbar-thumb,
+  .scrollHandle::-webkit-scrollbar-thumb {
+    background: transparent !important;
+    border-radius: 20px;
+  }
+  .sidebarScroll:hover::-webkit-scrollbar-thumb,
+  .scrollHandle:hover::-webkit-scrollbar-thumb {
+    background: lightblue !important;
+    border-radius: 20px;
+  }
+  /* For Sidebar Scrollbar End */
+
+  /* @Appy - Make All Flex Method class */
+  /* :>> ``1``  */
+  .flexjcic {
+    @apply flex justify-center items-center;
+  }
+
+  .flexjcis {
+    @apply flex justify-center items-start;
+  }
+
+  .flexjcie {
+    @apply flex justify-center items-end;
+  }
+  /* :>> ``2`` */
+  .flexjsic {
+    @apply flex justify-center items-center;
+  }
+  .flexjbic {
+    @apply flex justify-between items-center;
+  }
+
+  .flexjeic {
+    @apply flex justify-end items-center;
+  }
+  .flexjsis {
+    @apply flex justify-start items-start;
+  }
+}
+
+/* :>> Wave Start ``  */
+.hero-waves {
+  display: block;
+  z-index: 5;
+  position: relative;
+}
+
+.wave1 use {
+  -webkit-animation: move-forever1 50s linear infinite;
+  animation: move-forever1 50s linear infinite;
+  -webkit-animation-delay: -2s;
+  animation-delay: -2s;
+}
+
+.wave2 use {
+  -webkit-animation: move-forever2 35s linear infinite;
+  animation: move-forever2 35s linear infinite;
+  -webkit-animation-delay: -2s;
+  animation-delay: -2s;
+}
+
+.wave3 use {
+  -webkit-animation: move-forever3 20s linear infinite;
+  animation: move-forever3 20s linear infinite;
+  -webkit-animation-delay: -2s;
+  animation-delay: -2s;
+}
+
+@-webkit-keyframes move-forever1 {
+  0% {
+    transform: translate(85px, 0%);
+  }
+
+  100% {
+    transform: translate(-90px, 0%);
+  }
+}
+
+@keyframes move-forever1 {
+  0% {
+    transform: translate(85px, 0%);
+  }
+
+  100% {
+    transform: translate(-90px, 0%);
+  }
+}
+
+@-webkit-keyframes move-forever2 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+@keyframes move-forever2 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+@-webkit-keyframes move-forever3 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+@keyframes move-forever3 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+/* :>> Wave End `` */

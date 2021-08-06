@@ -1,7 +1,9 @@
-import SvgPropsTypes from 'types/SvgPropsTypes';
+import SvgPropsTypes from 'src/types/SvgPropsTypes';
 
 interface DarkToggleIconProps extends SvgPropsTypes {
-  darkmode: boolean;
+  darkmode?: boolean;
+  className?: string;
+  fill?: string;
 }
 
 export default function DarkToggleIcon({

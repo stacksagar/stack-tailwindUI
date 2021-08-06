@@ -1,4 +1,4 @@
-import SvgPropsTypes from 'types/SvgPropsTypes';
+import SvgPropsTypes from 'src/types/SvgPropsTypes';
 
 export default function PoundIcon({ fill, className }: SvgPropsTypes) {
   return (
