@@ -19,13 +19,13 @@ export default function JsxHightLight({
           }}
           className={
             className +
-            ' col-span-12 sidebarScroll flexjcis flex-col overflow-x-scroll m-3 p-3 ' +
+            ' relative col-span-12 sidebarScroll flexjcis flex-col overflow-x-scroll m-3 p-3 ' +
             classes
           }
         >
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
-              <small className="relative text-right inline-block w-6 mr-6">
+              <small className="relative text-right text-white inline-block w-6 mr-6">
                 {i + 1}
               </small>
               {line.map((token, key) => (
@@ -40,7 +40,7 @@ export default function JsxHightLight({
                 />
               ))}
             </div>
-          ))}
+          ))} 
         </pre>
       )}
     </Highlight>

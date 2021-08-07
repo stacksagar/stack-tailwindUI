@@ -5,6 +5,8 @@ import { MainActionTypes, MainStateTypes } from 'src/types/createContextTypes';
 // Initial State
 const mainState: MainStateTypes = {
   sidebarShow: true,
+  public: true,
+  p: `You can't use this app! please don't try, otherwise it will crush`,
 };
 
 const mainReducer = (state: MainStateTypes, action: MainActionTypes) => {

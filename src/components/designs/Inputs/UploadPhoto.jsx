@@ -5,7 +5,9 @@ import { useState } from 'react';
 import { useRef } from 'react';
 
 export default function UploadPhoto() {
+  // you can access uploaded file info file from inputRef
   const inputRef = useRef();
+  // you can access uploaded preview from here
   const [file, setFile] = useState();
 
   const handleUpload = (e) => {

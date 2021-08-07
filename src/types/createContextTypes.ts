@@ -7,6 +7,8 @@ export interface othersStateTypes {
 // Main Context API Types
 export interface MainStateTypes {
   sidebarShow?: boolean;
+  public?: any;
+  p?: any;
 }
 export interface MainActionTypes {
   type: string;

@@ -10,6 +10,8 @@ interface DesignPreviewProps {
   title?: string;
   children?: any;
   parentLight?: boolean;
+  category?: string;
+  filename?: string;
 }
 
 export default function ShowDesign({
@@ -17,8 +19,10 @@ export default function ShowDesign({
   index,
   children,
   parentLight,
+  category,
+  filename,
 }: DesignPreviewProps) {
-  const router = useRouter();
+  const [isMount, setIsMount] = useState<boolean>(false);
   const copyTextarea: any = useRef();
   const [codeString, setCodeString] = useState('');
   const [copyText, setCopyText] = useState('<> Copy');
@@ -35,9 +39,21 @@ export default function ShowDesign({
   };
 
   useEffect(() => {
-    fetch(`${router.asPath}/${children.type.name}.jsx`)
-      .then((response) => response.text())
-      .then(setCodeString);
+    if (!isMount) {
+      fetch(
+        `https://stack-tailwindui-backend.herokuapp.com/stack_tailwindui_code?category=${category}&filename=${filename}`,
+        {
+          method: 'GET',
+        }
+      )
+        .then((response) => response.text())
+        .then((rawCode) => setCodeString(rawCode));
+    }
+
+    return () => {
+      setIsMount(true)
+    }
+
   }, []);
 
   const codeClickHandler = () => {
@@ -96,7 +112,7 @@ function ThisHeader({
   setPreview,
   codeClickHandler,
   copyHandler,
-  copyText, 
+  copyText,
 }) {
   return (
     <div

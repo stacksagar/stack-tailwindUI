@@ -34,3 +34,4 @@ yarn-error.log*
 .vercel
 
 old-package.json
+package old-all.json

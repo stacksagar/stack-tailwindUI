@@ -1,10 +1,13 @@
-import GradientLight from 'public/designs/Buttons/GradientLight';
-import GradientLightOutLine from 'public/designs/Buttons/GradientLightOutline';
+import GradientLight from 'src/components/designs/Buttons/GradientLight';
+import GradientLightOutLine from 'src/components/designs/Buttons/GradientLightOutline';
 import ReactIcon from 'src/svgs/ReactIcon';
 import Wave from 'src/svgs/Wave';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { useEffect } from 'react';
+import { useContext } from 'react';
+import { MainContext } from 'context/mainContext';
+import { MainContextTypes } from 'src/types/createContextTypes';
 
 const imagesPath = [
   '/photos/email-subscribe.png',
@@ -56,7 +59,7 @@ function HomepageDesignsPhotos() {
               return 0;
             }
           });
-        },50);
+        }, 50);
       }, 500);
   };
 
@@ -86,6 +89,9 @@ function HomepageDesignsPhotos() {
 }
 
 export default function Homepage() {
+  if (process.env.NODE_ENV == 'development' && 3 + 1 == 5) {
+    throw new Error();
+  }
   return (
     <div className="Homepage w-full min-h-screen relative">
       <div
@@ -102,7 +108,7 @@ export default function Homepage() {
           <div className="p-5 rounded-sm bg-black bg-opacity-5">
             <h3 className="text-3xl">Get Beautifull Amazing UI & Components</h3>
             <p className="text-lg prime text-gray-400">
-              Designed with TailwindCSS💖
+              Designed with React+TailwindCSS💖
             </p>
           </div>
           <div className="text-xs text-gray-300 p-5 rounded-sm bg-black bg-opacity-5 flexjcic">

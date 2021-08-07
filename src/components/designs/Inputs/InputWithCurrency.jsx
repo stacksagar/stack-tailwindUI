@@ -10,25 +10,29 @@ import {
   CurrencyRupeeIcon,
   CurrencyBangladeshiIcon,
   CurrencyYenIcon,
-} from '@heroicons/react/solid';
+} from '@heroicons/react/solid'; 
 
 export default function InputWithCurrency() {
   const [selectedCurrency, setSelectedCurrency] = useState('Dollar');
-  const allCurrency = ['Dollar', 'Euro', 'Pound', 'Rupee', 'Bangladeshi', 'Yen'];
+  const allCurrency = ['Dollar', 'Euro', 'Pound', 'Rupee', 'Taka', 'Yen'];
 
-  const GetSelectedCurrency = () => {
-    const allIcons = [
-      CurrencyDollarIcon,
-      CurrencyEuroIcon,
-      CurrencyPoundIcon,
-      CurrencyRupeeIcon,
-      CurrencyBangladeshiIcon,
-      CurrencyYenIcon,
-    ];
-    const GetIcon = allIcons.find((icon) =>
-      icon.name.includes(selectedCurrency)
-    );
-    return <GetIcon className="w-4 h-4 text-white bg-gray-700 rounded-full" />;
+  const GetSelectedIcon = ({ iconType, className }) => {
+    switch (iconType) {
+      case 'Doller':
+        return <CurrencyDollarIcon className={className} />;
+      case 'Euro':
+        return <CurrencyEuroIcon className={className} />;
+      case 'Pound':
+        return <CurrencyPoundIcon className={className} />;
+      case 'Rupee':
+        return <CurrencyRupeeIcon className={className} />;
+      case 'Taka':
+        return <CurrencyBangladeshiIcon className={className} />;
+      case 'Yen':
+        return <CurrencyYenIcon className={className} />;
+      default:
+        return <CurrencyDollarIcon className={className} />;
+    }
   };
 
   return (
@@ -41,7 +45,10 @@ export default function InputWithCurrency() {
       </label>
       <div className="relative w-full">
         <span className="text-md text-blue-300 absolute inset-y-0 left-1 flex items-center text-sm">
-          <GetSelectedCurrency />
+          <GetSelectedIcon
+            iconType={selectedCurrency}
+            className="w-4 h-4 text-white bg-gray-700 rounded-full"
+          />
         </span>
 
         <input
