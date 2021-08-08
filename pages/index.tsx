@@ -43,20 +43,6 @@ export default function Homepage() {
     };
   }, []);
 
-  const FixedItems = ({ go, mainRef }) => {
-    return (
-      <>
-        <div
-          style={{ width: '350%' }}
-          className="z-10 fixed left-0 bottom-0 overflow-x-hidden"
-        >
-          <Wave className="w-full h-64 pt-1" />
-        </div>
-        <HomeScrollIcons go={go} mainRef={mainRef} />
-      </>
-    );
-  };
-
   return (
     <main
       style={{
