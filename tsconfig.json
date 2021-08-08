@@ -31,7 +31,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "node_modules/firebase.js", "pages/test.jsx", "pages/index.tsx", "src/components/ShowDesign.tsx"  ],
+, "node_modules/firebase.js", "pages/test.jsx", "pages/index.tsx", "src/components/ShowDesign.tsx", "src/components/designs/Buttons/CircleButton.jsx"  ],
   "exclude": [
     "node_modules"
   ]

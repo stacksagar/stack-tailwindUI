@@ -23,6 +23,50 @@
 @tailwind screens;
 
 @layer components {
+  .focus-in {
+    animation: focus-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+  .focus-in2 {
+    animation: focus-in2 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
+  .focus-in3 {
+    animation: focus-in3 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  }
+  @keyframes focus-in {
+    0% {
+      letter-spacing: 1em;
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes focus-in2 {
+    0% {
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes focus-in3 {
+    0% {
+      letter-spacing: 1em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      letter-spacing: normal;
+      opacity: 1;
+    }
+  }
+
   .parent:hover .child {
     display: block !important;
   }
@@ -61,7 +105,8 @@
   /* :>> JSX Styles End ` */
 
   body {
-    background: #151f33;
+    /* background: #151f33; */
+    background: #101010;
     color: #eee;
   }
 
@@ -72,6 +117,101 @@
   .leftBar {
     min-width: 250px !important;
     max-width: 250px;
+  }
+
+  /* LoadBG */
+  .loadBG {
+    background-image: -webkit-gradient(
+      linear,
+      right top,
+      left top,
+      from(#222222),
+      color-stop(#333333),
+      to(#222222)
+    );
+    background-image: linear-gradient(270deg, #222222, #333333, #222222);
+    background-size: 900% 100%;
+    animation: bg-pan-left 3s normal both infinite;
+  }
+  @keyframes bg-pan-left {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Scroll Image */
+  #boxAniWrapper {
+    /* animation: wrapper 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; */
+    animation: bounce-in 1.9s both;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+      animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    38% {
+      transform: scale(1);
+      animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    55% {
+      transform: scale(0.7);
+      animation-timing-function: ease-in;
+    }
+    72% {
+      transform: scale(1);
+      animation-timing-function: ease-out;
+    }
+    81% {
+      transform: scale(0.84);
+      animation-timing-function: ease-in;
+    }
+    89% {
+      transform: scale(1);
+      animation-timing-function: ease-out;
+    }
+    95% {
+      transform: scale(0.95);
+      animation-timing-function: ease-in;
+    }
+    100% {
+      transform: scale(1);
+      animation-timing-function: ease-out;
+    }
+  }
+
+  #boxAni {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/stack-tailwindui.appspot.com/o/photos%2Fall-designs.jpg?alt=media&token=ba4ef666-fe27-4815-859c-c307d56b2687);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    animation: 33s ease infinite alternate both running scrolling;
+  }
+  @keyframes scrolling {
+    0% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+  .scrollTransparent {
+    scrollbar-color: transparent transparent !important;
+  }
+  .scrollTransparent::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  .scrollTransparent::-webkit-scrollbar-thumb {
+    background: transparent !important;
   }
 
   * {

@@ -8,7 +8,14 @@ const AllDesignsCategories: object = {
     'Menus',
     'Progress',
     'Pagination',
+    'Table',
   ],
+
+  Formik: [],
+  Forms: [],
+  Validations: [],
+  Templates: [],
+  Application: [],
 };
 
 export default AllDesignsCategories;

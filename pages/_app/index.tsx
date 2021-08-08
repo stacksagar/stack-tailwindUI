@@ -22,7 +22,7 @@ import { MainProvider } from 'context/mainContext';
 export default function _app({ Component, pageProps }) {
   const router = useRouter();
 
-  if (router.asPath.includes('designs')) { 
+  if (router.asPath.includes('designs')) {
     return (
       <MainProvider>
         <div className="w-full h-14 bgSidebar fixed top-0 left-0 z-30 hidden 2xl:block"></div>
@@ -36,7 +36,10 @@ export default function _app({ Component, pageProps }) {
             <Header isDesignsPage={true} />
 
             {/* Right | Full Designs Page */}
-            <div className="relative p-9 max-w-full overflow-hidden">
+            <div
+              style={{ background: '#151f33' }}
+              className="relative p-9 max-w-full overflow-hidden"
+            >
               {/* Preivew Designs */}
               <Component {...pageProps} />
             </div>

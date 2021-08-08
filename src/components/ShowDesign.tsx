@@ -51,9 +51,8 @@ export default function ShowDesign({
     }
 
     return () => {
-      setIsMount(true)
-    }
-
+      setIsMount(true);
+    };
   }, []);
 
   const codeClickHandler = () => {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function SmartButton() {
+export default function SmartButton({ text }) {
   const [focus, setFocus] = useState(false);
   return (
     <button
@@ -12,7 +12,7 @@ export default function SmartButton() {
       }}
       className="relative overflow-hidden px-6 py-2 rounded bg-gray-600 focus:ring-4"
     >
-      <span>Button</span>
+      <span>{text || 'Button'}</span>
       {focus && (
         <span
           style={{

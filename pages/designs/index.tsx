@@ -1,6 +1,4 @@
-
 export default function Main() {
-
   return (
     <section className="text-white">
       <p className="h-96 w-full flexjcic bg-black bg-opacity-50 rounded mb-10">

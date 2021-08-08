@@ -16,6 +16,7 @@ interface HeaderProps {
 export default function Header({ isDesignsPage }: HeaderProps) {
   return (
     <header
+      style={{ background: `${!isDesignsPage && '#101010'}` }}
       className={`bgSidebar w-full h-14 sm:px-4 px-3 z-40 sticky top-0 left-0 ${
         isDesignsPage && `2xl:bg-transparent`
       } `}

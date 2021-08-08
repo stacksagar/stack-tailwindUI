@@ -5,150 +5,172 @@ import Wave from 'src/svgs/Wave';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { useEffect } from 'react';
-import { useContext } from 'react';
-import { MainContext } from 'context/mainContext';
-import { MainContextTypes } from 'src/types/createContextTypes';
-
-const imagesPath = [
-  '/photos/email-subscribe.png',
-  '/photos/help-us-do-more.png',
-  '/photos/reviews.png',
-  '/photos/how-can-we-help.png',
-  '/photos/your-plan.png',
-  '/photos/reviews-2.png',
-];
-
-function SingleImage({ path, i }) {
-  return (
-    <div
-      className={`w-full flex ${i !== 0 && ' -mt-20 '} ${
-        i % 2 == 0
-          ? 'justify-end 2xl:justify-center 2xl:-ml-56'
-          : 'justify-start 2xl:justify-center '
-      }`}
-    >
-      <Image
-        src={path}
-        className={`rounded object-cover object-center`}
-        width="400"
-        height="350"
-      />
-    </div>
-  );
-}
+import HowToUseSingle from 'src/components/HowToUseSingle';
+import Link from 'next/link';
+import CricleShow from 'src/components/CricleShow';
+import HomeScrollIcons from 'src/components/HomeScrollIcons';
 
 function HomepageDesignsPhotos() {
-  const scrollRef = useRef<any>();
-  const [scrollTop, setScrollTop] = useState<any>(0);
-  const [isMount, setIsMount] = useState<any>(false);
-  let isIncrement = true;
-
-  const handleScrollTop = () => {
-    if (!isMount)
-      setTimeout(() => {
-        setInterval(() => {
-          setScrollTop((prev) => {
-            if (isIncrement && prev + 500 < scrollRef.current.scrollHeight) {
-              return prev + 5;
-            } else {
-              isIncrement = false;
-              if (!isIncrement && prev > 2) {
-                return prev - 5;
-              }
-              isIncrement = true;
-              return 0;
-            }
-          });
-        }, 50);
-      }, 500);
-  };
-
-  useEffect(() => {
-    scrollRef.current.scrollTop = scrollTop;
-  }, [scrollTop]);
-
-  useEffect(() => {
-    handleScrollTop();
-    return () => {
-      setIsMount(true);
-    };
-  }, []);
-
   return (
     <div
-      ref={scrollRef}
-      className="w-full flex items-end justify-end max-h-screen overflow-hidden sticky top-0 right-0 rounded px-5"
+      className="w-96 h-96 relative mr-16 p-1 bg-gradient-to-r from-yellow-500 to-pink-500 bg-opacity-50 rounded-full overflow-hidden"
+      id="boxAniWrapper"
     >
-      <div className="p-7 w-3/5 h-screen">
-        {imagesPath.map((path, i) => (
-          <SingleImage key={i} path={path} i={i} />
-        ))}
-      </div>
+      <h1 className="font-bold w-72 h-12 text-2xl absolute inset-0 m-auto flexjcic text-pink-400 bg-black bg-opacity-75 rounded-full pl-5">
+        Example Designs
+        <small className="text-blue-400 px-2 py-0 rounded bg-gray-900 ring transform scale-50 origin-left ml-1 mt-1">
+          99+
+        </small>
+      </h1>
+      <div className="bg-black rounded-full overflow-hidden" id="boxAni"></div>
     </div>
   );
 }
 
 export default function Homepage() {
-  if (process.env.NODE_ENV == 'development' && 3 + 1 == 5) {
-    throw new Error();
-  }
+  const homeSectionRef = useRef<any>();
+  const mainRef = useRef<any>();
+  const [go, setGo] = useState(0);
+
+  const handleHowToUse = () => {
+    mainRef.current.scrollTop = document.documentElement.clientHeight - 100;
+    setGo(document.documentElement.clientHeight - 100);
+  };
+
+  useEffect(() => {
+    mainRef.current.onscroll = () => {
+      setGo(mainRef.current.scrollTop);
+    };
+  }, []);
+
+  const FixedItems = ({ go, mainRef }) => {
+    return (
+      <>
+        <div
+          style={{ width: '350%' }}
+          className="z-10 fixed left-0 bottom-0 overflow-x-hidden"
+        >
+          <Wave className="w-full h-64 pt-1" />
+        </div>
+        <HomeScrollIcons go={go} mainRef={mainRef} />
+      </>
+    );
+  };
+
   return (
-    <div className="Homepage w-full min-h-screen relative">
+    <main
+      style={{
+        height: 'calc( 100vh - 58px ) !important',
+        background: '#101010',
+      }}
+      ref={mainRef}
+      className="fixed 2xl:top-32 w-full px-0 md:px-5 lg:px-20 scrollTransparent overflow-y-auto inset-0 z-30 2xl:max-w-screen-2xl 2xl:mx-auto"
+    >
       <div
         style={{ width: '350%' }}
-        className="z-10 fixed left-0 top-0 h-full flex items-end overflow-hidden"
+        className="fixed left-0 bottom-0 overflow-x-hidden"
       >
-        <Wave className="w-full h-full pt-1" />
+        <Wave className="w-full h-20 pt-1" />
       </div>
+      <HomeScrollIcons mainRef={mainRef} />
 
-      <HomepageDesignsPhotos />
-
-      <main className="absolute inset-0 z-30 p-10 2xl:max-w-screen-2xl 2xl:mx-auto">
-        <section className="min-h-screen  flexjsis flex-col space-y-5">
-          <div className="p-5 rounded-sm bg-black bg-opacity-5">
-            <h3 className="text-3xl">Get Beautifull Amazing UI & Components</h3>
+      <section
+        ref={homeSectionRef}
+        className="h-screen 2xl:h-auto flex justify-between items-center"
+      >
+        <div className="flex flex-col space-y-9">
+          <div className="rounded-sm ">
+            <h3 className="text-3xl">
+              Get Beautifull Amazing UI &
+              <span className="italic ml-2 inline-block">Components</span>
+            </h3>
             <p className="text-lg prime text-gray-400">
               Designed with React+TailwindCSS💖
             </p>
           </div>
-          <div className="text-xs text-gray-300 p-5 rounded-sm bg-black bg-opacity-5 flexjcic">
-            <span className="prime">
+          <div className="text-xs text-gray-300 rounded-sm flex">
+            <span className="italic">
               Specially for
               <span className="text-purple-300 mx-1">React.js & Next.js</span>
             </span>
             <ReactIcon className="animate-spin circleDuration" />
-            <span className="prime">Developer's</span>
+            <span className="italic">Developer's</span>
           </div>
-          <p className="text-sm text-gray-200 w-96 p-5 rounded-sm bg-black bg-opacity-5">
-            Are you like to make website with fast, then this UI Designs for you
+          <p className="text-gray-300 text-lg w-96 rounded-sm text-left tracking-wider ">
+            Are you like to make website with TailwindCSS, build faster,
+            beautiful, and more accessible React/Next applications. You can use
+            our UI_designs for free.
           </p>
           <div className="flex space-x-3">
-            <GradientLightOutLine text="Preview UI" />
-            <GradientLight text="Get Started" />
+            <a onClick={handleHowToUse}>
+              <GradientLight text="How to use ?" />
+            </a>
+            <a onClick={handleHowToUse}>
+              <GradientLightOutLine text="Get Started" />
+            </a>
           </div>
-        </section>
+        </div>
+        <HomepageDesignsPhotos />
+      </section>
 
-        <section>
-          <div>
-            <p id="first" className="min-h-screen">
-              1 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
-              aspernatur?
-            </p>
-            <p id="second" className="min-h-screen">
-              2 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
-              aspernatur?
-            </p>
-            <p id="third" className="min-h-screen">
-              3 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
-              aspernatur?
-            </p>
-            <p id="fourth" className="min-h-screen">
-              3 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
-              aspernatur?
-            </p>
+      <section
+        id="howToUse"
+        className="m-5 p-9 mt-32 text-center bg-gray-900 rounded"
+      >
+        <h2 className="mb-32 text-white italic text-3xl border-b-2 inline-block border-gray-400">
+          How To Use Component ?
+        </h2>
+        <div>
+          <div className="mb-12">
+            <CricleShow text="1" /> First Go To Design Page From Here
+            <Link href="/designs">
+              <a className="underline ml-2 text-blue-400">Designs & UI</a>
+            </Link>
           </div>
-        </section>
-      </main>
-    </div>
+          <HowToUseSingle
+            number="2"
+            title="Select Category"
+            src="https://firebasestorage.googleapis.com/v0/b/stacksagar-storage.appspot.com/o/stack-tailwindui%2FhowToUse%2Fcategory.png?alt=media&token=428b9d87-4634-4046-9d06-381a71350c42"
+          />
+          <HowToUseSingle
+            title="Choose any from Category"
+            number="3"
+            src="https://firebasestorage.googleapis.com/v0/b/stacksagar-storage.appspot.com/o/stack-tailwindui%2FhowToUse%2Ftype.png?alt=media&token=8d771e5b-baca-42f2-b245-c61762c8488c"
+            arrow={'fromLeft'}
+          />
+
+          <div className="mb-12">
+            <p>
+              See Preview & click <b>Code</b> button 👇
+            </p>
+            <div className="transform scale-75 origin-top w-full h-96 relative">
+              <div className="w-3/5 h-32 absolute inset-0 m-auto z-0"></div>
+              <Image
+                layout="fill"
+                objectFit="contain"
+                className="z-10 w-full h-auto"
+                src={`https://firebasestorage.googleapis.com/v0/b/stacksagar-storage.appspot.com/o/stack-tailwindui%2FhowToUse%2Fpreview.png?alt=media&token=3fdd3d38-e759-4da7-bd5c-46c616da057d`}
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div>
+            <p>
+              See JSX Code & click <b>Copy</b> button 👇 that's it.
+            </p>
+            <div className="transform scale-75 origin-top w-full h-96 relative">
+              <Image
+                objectFit="contain"
+                layout="fill"
+                className="w-full h-auto"
+                src={`https://firebasestorage.googleapis.com/v0/b/stacksagar-storage.appspot.com/o/stack-tailwindui%2FhowToUse%2Fcode.png?alt=media&token=7eac2f97-1a2f-453c-89c4-5a442a2e3f93`}
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

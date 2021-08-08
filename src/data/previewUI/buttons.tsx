@@ -6,12 +6,17 @@ import LightOutlineEffect from 'src/components/designs/Buttons/LightOutlineEffec
 import GradientLight from 'src/components/designs/Buttons/GradientLight';
 import GradientLightOutLine from 'src/components/designs/Buttons/GradientLightOutline';
 import SmartButton from 'src/components/designs/Buttons/SmartButton';
+import CircleButton from 'src/components/designs/Buttons/CircleButton';
 
 const buttonsUI: componentTypes[] = [
   {
     title: 'Smart Button',
     Component: SmartButton,
     filename: 'SmartButton.jsx',
+  },  {
+    title: 'Circle Button',
+    Component: CircleButton,
+    filename: 'CircleButton.jsx',
   },
   {
     title: 'Gradient Light',
