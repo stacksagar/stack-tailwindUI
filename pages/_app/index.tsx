@@ -26,7 +26,7 @@ export default function _app({ Component, pageProps }) {
     return (
       <MainProvider>
         <div className="w-full h-14 bgSidebar fixed top-0 left-0 z-30 hidden 2xl:block"></div>
-        <main className="flex justify-between 2xl:max-w-screen-2xl 2xl:m-auto 2xl:bg-gray-800">
+        <main className="flex justify-between  2xl:max-w-screen-xl 2xl:m-auto">
           {/* Left Header & Component-bar */}
           <LeftBar />
 
@@ -37,7 +37,16 @@ export default function _app({ Component, pageProps }) {
 
             {/* Right | Full Designs Page */}
             <div
-              style={{ background: '#151f33' }}
+              style={{
+                background: '#151f33',
+                minHeight: 'calc( 100vh - 56px )',
+                backgroundImage:
+                  'url(https://firebasestorage.googleapis.com/v0/b/stacksagar-storage.appspot.com/o/dots.svg?alt=media&token=1383b682-3235-4f38-baac-2c7b8bcd1726)',
+                backgroundAttachment: 'fixed',
+                backgroundPosition: 'center center',
+                backgroundSize: '100% 220%',
+                backgroundRepeat: 'no-repeat',
+              }}
               className="relative p-9 max-w-full overflow-hidden"
             >
               {/* Preivew Designs */}

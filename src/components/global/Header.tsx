@@ -21,7 +21,7 @@ export default function Header({ isDesignsPage }: HeaderProps) {
         isDesignsPage && `2xl:bg-transparent`
       } `}
     >
-      <div className="flexjbic h-full 2xl:rounded 2xl:px-5 2xl:max-w-screen-2xl 2xl:mx-auto">
+      <div className="flexjbic h-full 2xl:rounded 2xl:px-5  2xl:max-w-screen-xl 2xl:mx-auto">
         <HeaderLeft isDesignsPage={isDesignsPage} />
 
         <nav>

@@ -10,7 +10,8 @@ const AllDesignsCategories: object = {
     'Pagination',
     'Table',
   ],
-
+  Animations: [],
+  D3js: [],
   Formik: [],
   Forms: [],
   Validations: [],

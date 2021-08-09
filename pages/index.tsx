@@ -28,45 +28,32 @@ function HomepageDesignsPhotos() {
 }
 
 export default function Homepage() {
-  const homeSectionRef = useRef<any>();
   const mainRef = useRef<any>();
-  const [go, setGo] = useState(0);
 
   const handleHowToUse = () => {
     mainRef.current.scrollTop = document.documentElement.clientHeight - 100;
-    setGo(document.documentElement.clientHeight - 100);
   };
-
-  useEffect(() => {
-    mainRef.current.onscroll = () => {
-      setGo(mainRef.current.scrollTop);
-    };
-  }, []);
 
   return (
     <main
       style={{
-        height: 'calc( 100vh - 58px ) !important',
         background: '#101010',
+        backgroundImage:
+          'url(https://firebasestorage.googleapis.com/v0/b/stacksagar-storage.appspot.com/o/dots.svg?alt=media&token=1383b682-3235-4f38-baac-2c7b8bcd1726)',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center center',
+        backgroundSize: '100% 220%',
+        backgroundRepeat: 'no-repeat',
       }}
       ref={mainRef}
-      className="fixed 2xl:top-32 w-full px-0 md:px-5 lg:px-20 scrollTransparent overflow-y-auto inset-0 z-30 2xl:max-w-screen-2xl 2xl:mx-auto"
+      className="fixed pt-28 w-full px-0 md:px-5 lg:px-20 scrollTransparent overflow-y-auto inset-0 z-30 2xl:max-w-screen-xl 2xl:mx-auto"
     >
-      <div
-        style={{ width: '350%' }}
-        className="fixed left-0 bottom-0 overflow-x-hidden"
-      >
-        <Wave className="w-full h-20 pt-1" />
-      </div>
       <HomeScrollIcons mainRef={mainRef} />
 
-      <section
-        ref={homeSectionRef}
-        className="h-screen 2xl:h-auto flex justify-between items-center"
-      >
+      <section className="flex justify-between items-center">
         <div className="flex flex-col space-y-9">
           <div className="rounded-sm ">
-            <h3 className="text-3xl">
+            <h3 className="text-3xl focus-in2">
               Get Beautifull Amazing UI &
               <span className="italic ml-2 inline-block">Components</span>
             </h3>
@@ -80,12 +67,12 @@ export default function Homepage() {
               <span className="text-purple-300 mx-1">React.js & Next.js</span>
             </span>
             <ReactIcon className="animate-spin circleDuration" />
-            <span className="italic">Developer's</span>
+            <span className="italic focus-in2">Developer's</span>
           </div>
-          <p className="text-gray-300 text-lg w-96 rounded-sm text-left tracking-wider ">
-            Are you like to make website with TailwindCSS, build faster,
-            beautiful, and more accessible React/Next applications. You can use
-            our UI_designs for free.
+          <p className="text-gray-300 text-base w-96 rounded-sm text-left focus-in2 tracking-normal">
+            Are you like to make website with TailwindCSS, build faster
+            beautiful, and more accessible React or Next applications. You can
+            use our UI & Components for free.
           </p>
           <div className="flex space-x-3">
             <a onClick={handleHowToUse}>

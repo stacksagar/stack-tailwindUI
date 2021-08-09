@@ -24,13 +24,13 @@
 
 @layer components {
   .focus-in {
-    animation: focus-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: focus-in 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
   .focus-in2 {
-    animation: focus-in2 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    animation: focus-in2 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
   }
   .focus-in3 {
-    animation: focus-in3 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: focus-in3 2s cubic-bezier(0.215, 0.61, 0.355, 1) both;
   }
   @keyframes focus-in {
     0% {
